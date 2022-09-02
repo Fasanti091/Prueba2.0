@@ -1,0 +1,40 @@
+{% extends 'web/base_principal.html' %}
+
+
+{% block buscador %}
+<div class="container">
+    <div class="card ls-4">
+        <div class="card-header" style="text-align: center;">Busqueda de comentarios</div>
+        <div class="card-body">
+            <div class="input-group">
+                <form class="d-flex" role="search">
+                    {{ formulario.as_p }} &nbsp;
+                    <button class="btn btn-primary" id="button-search" style="height: 30px;" type="submit">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
+{% endblock buscador %}
+
+{% block listado %}
+    {% for comentario in comentarios %}
+
+    <!-- Search widget-->
+    <section class="mb-5">
+        <div class="card bg-light">
+            <div class="card-body">
+                <!-- Single comment-->
+                <div class="d-flex">
+                    <div class="flex-shrink-0"><img class="rounded-circle" src="https://i0.wp.com/www.baoss.es/wp-content/uploads/2020/10/python-5-pho.jpg?fit=1024%2C1024&ssl=1" style="max-height: 70px;" alt="..." /></div>
+                    <div class="ms-3">
+                        <div class="fw-bold">Usuario Anonimo<h4>{{comentario.titulo}}</h4></div>
+                        {{comentario.contenido}}  ||  {{comentario.fecha_publicacion}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endfor %}
+{% endblock listado %}

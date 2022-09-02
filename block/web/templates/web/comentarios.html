@@ -1,0 +1,55 @@
+{% extends 'web/base_principal.html' %}
+
+{% block titulo_comnetarios %}
+    <h1 style="text-align: center;">Comentarios Aninimos</h1>
+    <br>
+    <br>
+    <br>
+    <hr><br>
+{% endblock titulo_comnetarios %}
+
+{% block crear_comentarios%}
+    {% if user.is_authenticated %}
+    <h4 style="text-align: center; color: green;">Crear Comentario</h4>
+    <br>
+    <br>
+    <div style="text-align: center;">
+        <form method="post">{% csrf_token %}
+            
+            {{ formulario.as_table}}
+            <br>
+            <br>
+            <input class="btn btn-outline-success mb-3 d-grid gap-2 col-5 mx-auto" type="submit" value="Crear">
+            <br>
+            <hr>
+            
+            
+        </form>
+    </div>
+    {% endif%}
+{% endblock crear_comentarios%}
+
+{% block listado %}
+    {% for comentario in comentarios %}
+
+    <!-- Search widget-->
+    <section class="mb-5">
+        <div class="card bg-light">
+            <div class="card-body">
+                <!-- Single comment-->
+                <div class="d-flex">
+                    <div class="flex-shrink-0"><img class="rounded-circle" src="https://i0.wp.com/www.baoss.es/wp-content/uploads/2020/10/python-5-pho.jpg?fit=1024%2C1024&ssl=1" style="max-height: 70px;" alt="..." /></div>
+                    <div class="ms-3">
+                        <div class="fw-bold">Usuario Anonimo<h4>{{comentario.titulo}}</h4></div>
+                        {{comentario.contenido}}  ||  {{comentario.fecha_publicacion}}
+                    </div>
+                </div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    {% if user.is_authenticated %}<a class="btn btn-outline-danger" href="{% url 'borrar_comentarios' comentario.id %} " role="button">Eliminar</a>{% endif %}
+                    {% if user.is_authenticated %}<a class="btn btn-outline-dark" href="{% url 'editar_comentarios' comentario.id %} " role="button">Editar</a>{% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endfor %}
+{% endblock listado %}

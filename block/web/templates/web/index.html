@@ -1,0 +1,72 @@
+{% extends 'web/base_principal.html' %}
+
+{% block index %}
+<div class="col-lg-8">
+    <!-- Post content-->
+    <article>
+        <!-- Post header-->
+        <header class="mb-4">
+            <!-- Post title-->
+            <h1 class="fw-bolder mb-1">Bienvenidos a nuestro Post de Python</h1>
+            <!-- Post meta content-->
+            <div class="text-muted fst-italic mb-2">{{ dateTime }}</div>
+            <!-- Post categories-->
+            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
+            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Python</a>
+            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Django</a>
+        </header>
+        <!-- Preview image figure-->
+        <figure class="mb-4"><img class="img-fluid rounded" src="https://images.hdqwalls.com/wallpapers/python-logo-4k-i6.jpg" alt="..." /></figure>
+        <!-- Post content-->
+        <section class="mb-5">
+            <p class="fs-5 mb-4">
+                Python fue creado por el informático Guido van Rossum, quien había estado trabajando con un lenguaje llamado ABC en su anterior trabajo en el Centrum Wiskunde y Informática Instituto Nacional de Investigación en Matemáticas e Informática en los Países Bajos-. Aunque le gustaban algunos aspectos de ABC, estaba frustrado por lo difícil que era difundir este lenguaje.
+            </P>
+            <p class="fs-5 mb-4">
+                Durante las vacaciones de Navidad de 1989, van Rossum decidió intentar crear su propio lenguaje. Poco más de un año después, en febrero de 1991, subió la primera versión de su creación a USENET.
+            </p>
+            <h2 class="fw-bolder mb-4 mt-5">¿Qué es Python?</h2>
+            <p class="fs-5 mb-4">
+                En términos técnicos, Python es un lenguaje de programación de alto nivel, orientado a objetos, con una semántica dinámica integrada, principalmente para el desarrollo web y de aplicaciones informáticas.
+                Es muy atractivo en el campo del Desarrollo Rápido de Aplicaciones porque ofrece tipificación dinámica y opciones de encuadernación dinámicas.
+                Python es relativamente simple, por lo que es fácil de aprender, ya que requiere una sintaxis única que se centra en la legibilidad. Los desarrolladores pueden leer y traducir el código Python mucho más fácilmente que otros lenguajes.
+            </p>
+        </section>
+    </article>
+    <!-- Comments section-->
+
+</div>
+<!-- Side widgets-->
+<div class="col-lg-4">
+    
+    <!-- Categories widget-->
+    {% if user.is_authenticated %}
+    <div class="card mb-4">
+        <div class="card-header">Categorias</div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-6">
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="#!">Blogs Creados </a></li>
+                        <li><a href="#!">Programacion</a></li>
+                        <li><a href="#!">Frameworks</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="#!">ddf</a></li>
+                        <li><a href="#!">CSS</a></li>
+                        <li><a href="#!">Nosotros</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <!-- Side widget-->
+    <div class="card mb-4">
+        <div class="card-header">Informacion</div>
+        <div class="card-body">Es importante registrarse para acceder a varias opciones del blog, espero que sea de su agrado.</div>
+    </div>
+</div>
+{% endblock index %}

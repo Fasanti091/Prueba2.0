@@ -23,18 +23,19 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="{% url 'inicio' %}">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'comentarios' %}">Comentarios</a></li>                        
+                        <li class="nav-item"><a class="nav-link" href="{% url 'post' %}">Comentarios</a></li>                        
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'register' %}">Registrarse</a></li>
                         {% if user.is_authenticated %}
                         <li><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>          
                             
                         </li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Cerrar sesion</a>                        
-                        <li class="nav-item"><a class="nav-link" href="#">@{{user.username}}</a>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">@{{user.username}}</a>
                         </li class="nav-item"><a class="nav-link" href="#">Editar</a>
+                        
                         </li>
                         {% else %}
                         <li>
-                            <li class="nav-item"><a class="nav-link" href="#">Iniciar Sesion</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Iniciar Sesion</a></li>
                         </li>
                         {%endif%}
                         | <a class= "btn btn-outline-warning float-right"href="{% url 'buscador' %}">Buscador</a>

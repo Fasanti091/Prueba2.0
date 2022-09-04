@@ -1,13 +1,15 @@
-from django import forms
+
+
+from django.forms import Form, PasswordInput, EmailField,CharField,ModelForm,Textarea,ImageField
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
 from .models import Post
 
 class UserRegisterForm(UserCreationForm):
-    email = forms.EmailField()
-    password1 = forms.CharField(label='Contraseña',widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Confirma Contraseña',widget=forms.PasswordInput)
+    email = EmailField()
+    password1 = CharField(label='Contraseña',widget=PasswordInput)
+    password2 = CharField(label='Confirma Contraseña',widget=PasswordInput)
     
     class Meta: 
         model = User
@@ -15,11 +17,24 @@ class UserRegisterForm(UserCreationForm):
         help_text = {k:"" for k in fields}
         
         
-class PostForm(forms.ModelForm):
-    content = forms.CharField(label='',widget=forms.Textarea(attrs={'rows':2, 'placeholder':'¿Que estas pensando?'}),required=True)
+class PostForm(ModelForm):
+    content = CharField(label='',widget=Textarea(attrs={'rows':2, 'placeholder':'¿Que estas pensando?'}),required=True)
     
     class Meta:
         model = Post
         fields = ['content']
     
+class UserEditForm(UserCreationForm):
+    email = EmailField()
+    password1 = CharField(label='Contraseña',widget = PasswordInput)
+    password2 = CharField(label=' Reetir la contraseña',widget = PasswordInput)
+    
+    class Meta:
+        model= User
+        fields = ["email","password1","password2"]
+        help_texts = {k: "" for k in fields} 
+        
+        
+class AvatarForm(Form):
+    imagen = ImageField()
     

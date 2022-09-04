@@ -1,5 +1,5 @@
-{% extends 'social/feed.html' %}
-{% load humanize %}
+{% extends 'social/layout.html' %}
+{% load static %}
 {% block content %}
 
 <!-- Profile -->
@@ -27,5 +27,5 @@
 </div>
 
 
-{{block.super }}
+ {{block.super }}
 {% endblock %}

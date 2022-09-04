@@ -1,9 +1,10 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from social.models import *
-from social.forms import PostForm, UserRegisterForm
+from social.forms import PostForm, UserRegisterForm,UserEditForm,AvatarForm
 from django.contrib import messages
 from django.contrib.auth.models import User
 from web.views import *
+from django.contrib.auth.decorators import login_required
 
 def feed(request):
     posts = Post.objects.all()
@@ -50,3 +51,41 @@ def profile(request,username=None):
         posts = current_user.posts.all()
         user = current_user
     return render(request,'social/profile.html',{'user':user,'posts':posts})
+
+
+@login_required
+def editPerfil(request):
+     if request.method == "GET":
+        form = UserEditForm()
+        return render(request,"social/editar_perfil.html",{"form":form})
+     else:
+        form = UserEditForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            usuario = request.user
+            usuario.email = data["email"]
+            usuario.password1 = data["password1"]
+            usuario.password2 = data["password2"]
+            usuario.Image
+            
+            usuario.save()
+        return redirect("inicio")
+    
+@login_required
+def agregar_avatar(request):
+    if request.method =="GET":
+        form = AvatarForm()
+        contexto = {"form": form}
+        return render(request,"social/avatar.html",contexto)
+    else:
+        form = AvatarForm(request.POST,request.FILES)
+        if form.is_valid():
+            data=form.cleaned_data
+            
+            user = User.objects.filter(username=request.user.username).first()
+            avatar= Avatar(user=user,imagen=data["imagen"])
+            avatar.save()
+        return redirect("profile")    
+            
+    
+   

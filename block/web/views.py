@@ -5,10 +5,21 @@ from django.shortcuts import render, redirect
 from web.models import *
 from datetime import datetime
 from web.forms import *
+from social.views import *
 
 # Create your views here.
 def index(request):
     return render(request, "web/index.html",{"dateTime": datetime.now})
+
+def nosotros(request):
+    return render(request, "web/nosotros.html")
+
+def frameworks(request):
+    return render(request, "web/frameworks.html")
+
+def lista_usuarios(request):
+    #user = User.objects.all()
+    return render(request, "web/lista_usuarios.html")
 
 def buscador(request):
     comentarios = Posteo.objects.all()

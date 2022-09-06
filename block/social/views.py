@@ -53,6 +53,7 @@ def profile(request,username=None):
     return render(request,'social/profile.html',{'user':user,'posts':posts})
 
 
+
 @login_required
 def editPerfil(request):
      if request.method == "GET":
@@ -71,6 +72,25 @@ def editPerfil(request):
             usuario.save()
         return redirect("inicio")
     
+def follow(request,username):
+    current_user = request.user
+    to_user = User.objects.get(username=username)
+    to_user_id=to_user
+    rel=Relationship(from_user=current_user,to_user=to_user_id)
+    rel.save()
+    messages.success(request,f'sigues a {username}')
+    return redirect("feed")
+
+def unfollow(request,username):
+    current_user = request.user
+    to_user = User.objects.get(username=username)
+    to_user_id=to_user
+    rel= Relationship.objects.filter(from_user=current_user.id, to_user=to_user_id).get()
+    rel.delete()
+    messages.success(request,f'Dejaste de seguir a {username}')
+    return redirect("feed")
+
+
 @login_required
 def agregar_avatar(request):
     if request.method =="GET":

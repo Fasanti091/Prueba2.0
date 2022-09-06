@@ -1,4 +1,4 @@
-from unicodedata import name
+
 from django.urls import path
 from web.views import *
 from social.views import *
@@ -14,6 +14,9 @@ urlpatterns = [
     path('editar_comentarios/<int:id_titulo>', editar_comentarios, name="editar_comentarios"),
     path('nosotros/', nosotros, name="nosotros"),
     path('frameworks/', frameworks, name="frameworks"),
-    path('lista_usuarios', lista_usuarios, name="lista_usuarios")
+    path('lista_usuarios/',UsuariosList.as_view(), name="lista_usuarios"),
+    path('usuarios/<pk>',UserDetail.as_view(),name="detalles")
+    
+    
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

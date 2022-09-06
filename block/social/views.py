@@ -87,5 +87,3 @@ def agregar_avatar(request):
             avatar.save()
         return redirect("profile")    
             
-    
-   

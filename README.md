@@ -2,6 +2,8 @@
 
 Realizado por Diego Chavez y Andres Suarez
 
+antes de ejecutar realizar pip install -r requirements.txt para instalar 
+
 
 #!!!
 Prueba del pull
@@ -20,3 +22,4 @@ se configura app social, se agrega perfiles, funcion de posteo, y funcion de fol
 
 la funcion de follow fue en base a un video tutorial.
 
+aun queda sin funcionar la ctualizacion de avatar! que se estara actualzando en breves 

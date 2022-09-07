@@ -10,7 +10,7 @@ Andres Suarez - encargo de la aplicación web
 
 •	Buscador
 •	CRUD de Comentarios
-• Templates
+•   Templates
 •	Diseño de la web
 
 Diego Chávez – encargado de la aplicación social

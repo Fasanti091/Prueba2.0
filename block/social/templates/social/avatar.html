@@ -3,7 +3,7 @@
 
 
 {% block Avatar %}
-<form action="post" enctype="multipart/from-data">
+<form action="" enctype="multipart/from-data">
     {% csrf_token %}
     {{form.as_p}}
   <input type="submit" value="Cargar">

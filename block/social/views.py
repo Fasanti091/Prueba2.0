@@ -67,7 +67,6 @@ def editPerfil(request):
             usuario.email = data["email"]
             usuario.password1 = data["password1"]
             usuario.password2 = data["password2"]
-            usuario.Image
             
             usuario.save()
         return redirect("inicio")

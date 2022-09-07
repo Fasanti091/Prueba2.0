@@ -2,8 +2,14 @@
 
 Realizado por Diego Chavez y Andres Suarez
 
+!!! Importante
 Antes de ejecutar realizar ---> pip install -r requirements.txt
 Para la instalacion de los paquetes!!!
+
+---> python .\manage.py makemigrations
+---> python manage.py migrate
+
+Para garantizar el funcionamiento correcto de la web 
 
 
 Andres Suarez - encargo de la aplicación web

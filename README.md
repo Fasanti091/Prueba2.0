@@ -2,24 +2,25 @@
 
 Realizado por Diego Chavez y Andres Suarez
 
-antes de ejecutar realizar pip install -r requirements.txt para instalar 
+Antes de ejecutar realizar ---> pip install -r requirements.txt
+Para la instalacion de los paquetes!!!
 
 
-#!!!
-Prueba del pull
+Andres Suarez - encargo de la aplicación web
+•	Buscador
+•	CRUD de Comentarios
+*   Templates
+•	Diseño de la web
+
+Diego Chávez – encargado de la aplicación social
+•	CRUD usuarios
+•	Login y Register
+•	Post
+•	Perfil
 
 
 
+Esta aplicación es una versión inicial, Este proyecto cuenta Con un inicio de sesión, registro, actualización de datos, CRUD de comentarios, CRUD de usuarios, cuenta con perfiles de usuario, con funciones de follow y posteo.
+El código funciona en su totalidad con los apartados mencionados, se esta haciendo una adaptación para subir la foto de perfil o avatar que aun esta en pruebas de funcionamiento.
 
-Se agrega App de Login y Registro y se deja funcional, quedan funcionando botones de Registrarse , Iniciar sesion en base.html.
-
-Se Actualiza login y registro, se cra funcion de edicion del perfil del usuario conectado. 
-
-
-se borra app registro y se coloca app social ! trabajo hecho en paralelo y fucionado con el proyecto anteriorior.
-
-se configura app social, se agrega perfiles, funcion de posteo, y funcion de follow
-
-la funcion de follow fue en base a un video tutorial.
-
-aun queda sin funcionar la ctualizacion de avatar! que se estara actualzando en breves 
+Se agrego un video demostrativo de la web en la carpeta Video_web
